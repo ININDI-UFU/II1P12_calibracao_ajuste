@@ -24,7 +24,7 @@ static void adcSampleTask(void *pvParameters) {
 void setup() {
     Serial.begin(9600);
     adcQueue = xQueueCreate(64, sizeof(uint16_t));
-    xTaskCreatePinnedToCore(adcSampleTask, "adcSampleTask", 2048, nullptr, 1, nullptr, 1);
+    xTaskCreate(adcSampleTask, "adcSampleTask", 2048, nullptr, 1, nullptr);
 }
 
 void loop() {
