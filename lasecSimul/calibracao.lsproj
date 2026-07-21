@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "id": "component-1784293420489-268209",
+      "typeId": "subcircuits.esp32_devkitc_v4",
+      "properties": {},
+      "label": "ESP32 DevKitC V4 (placa completa)-1",
+      "showValue": false,
+      "visual": {
+        "x": 224,
+        "y": 120,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "component-1784380899574-54961",
+      "typeId": "other.ground",
+      "properties": {},
+      "label": "Ground (0 V)-2",
+      "showValue": false,
+      "flipH": true,
+      "visual": {
+        "x": 128.2040436971954,
+        "y": 269.8915596978862,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "component-1784380948993-238096",
+      "typeId": "sources.rail",
+      "properties": {
+        "voltage": 3.3
+      },
+      "label": "Rail-1",
+      "showValue": false,
+      "flipH": true,
+      "visual": {
+        "x": 120.19422338732537,
+        "y": 86.0103608348754,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "component-1784403032914-630873",
+      "typeId": "peripherals.lasecplot",
+      "properties": {
+        "source_name": "LasecPlot-1"
+      },
+      "label": "LasecPlot-1",
+      "showValue": false,
+      "showDialValue": false,
+      "visual": {
+        "x": 367.8944768176136,
+        "y": 167.2085308418322,
+        "rotation": 0
+      }
+    },
+    {
+      "id": "component-1784629379400-718687",
+      "typeId": "passive.resistor",
+      "properties": {
+        "resistance": 1000,
+        "__ui_valueLabelX": -34,
+        "__ui_valueLabelY": -4
+      },
+      "label": "Resistor-1",
+      "showValue": true,
+      "showDialValue": false,
+      "visual": {
+        "x": 119.70032824923695,
+        "y": 131.31651449431786,
+        "rotation": 90
+      }
+    },
+    {
+      "id": "component-1784629397007-224909",
+      "typeId": "sensors.ldr",
+      "properties": {},
+      "label": "LDR-1",
+      "showValue": false,
+      "showDialValue": false,
+      "visual": {
+        "x": 111.98647264722757,
+        "y": 211.3603533818102,
+        "rotation": 90
+      }
+    },
+    {
+      "id": "component-1784629627540-862164",
+      "typeId": "meters.probe",
+      "properties": {
+        "threshold": 2.5,
+        "showVolt": true,
+        "negativeThreshold": -2.5
+      },
+      "label": "Probe-1",
+      "showValue": false,
+      "showDialValue": false,
+      "visual": {
+        "x": 145.38324566701598,
+        "y": 142.20416357522046,
+        "rotation": 0
+      }
+    }
+  ],
+  "topology": {
+    "revision": 1350,
+    "nodes": [
+      {
+        "id": "junction-1784629478946-958952",
+        "position": {
+          "x": 136,
+          "y": 175.6729961734712
+        }
+      },
+      {
+        "id": "junction-1784629639541-552734",
+        "position": {
+          "x": 152,
+          "y": 175.6729961734712
+        }
+      }
+    ],
+    "conductors": [
+      {
+        "id": "wire-1784403040499-17086",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784293420489-268209",
+          "pinId": "RX"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784403032914-630873",
+          "pinId": "tx"
+        },
+        "vertices": [
+          {
+            "x": 367.8944768176136,
+            "y": 174
+          }
+        ]
+      },
+      {
+        "id": "wire-1784403050926-538733",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784293420489-268209",
+          "pinId": "TX"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784403032914-630873",
+          "pinId": "rx"
+        },
+        "vertices": [
+          {
+            "x": 344,
+            "y": 166
+          },
+          {
+            "x": 344,
+            "y": 192
+          },
+          {
+            "x": 367.8944768176136,
+            "y": 192
+          }
+        ]
+      },
+      {
+        "id": "wire-1784629456952-80235",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784629379400-718687",
+          "pinId": "pin-1"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784380948993-238096",
+          "pinId": "pin-1"
+        },
+        "vertices": []
+      },
+      {
+        "id": "wire-1784629478946-93650",
+        "from": {
+          "kind": "node",
+          "nodeId": "junction-1784629478946-958952"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784629379400-718687",
+          "pinId": "pin-2"
+        },
+        "vertices": []
+      },
+      {
+        "id": "wire-1784629478946-98202",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784629397007-224909",
+          "pinId": "a"
+        },
+        "to": {
+          "kind": "node",
+          "nodeId": "junction-1784629478946-958952"
+        },
+        "vertices": [
+          {
+            "x": 135.18647264722756,
+            "y": 175.6729961734712
+          }
+        ]
+      },
+      {
+        "id": "wire-1784629492642-193316",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784629397007-224909",
+          "pinId": "b"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784380899574-54961",
+          "pinId": "pin"
+        },
+        "vertices": []
+      },
+      {
+        "id": "wire-1784629639541-98923",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784293420489-268209",
+          "pinId": "G34"
+        },
+        "to": {
+          "kind": "node",
+          "nodeId": "junction-1784629639541-552734"
+        },
+        "vertices": []
+      },
+      {
+        "id": "wire-1784629639541-677081",
+        "from": {
+          "kind": "node",
+          "nodeId": "junction-1784629639541-552734"
+        },
+        "to": {
+          "kind": "node",
+          "nodeId": "junction-1784629478946-958952"
+        },
+        "vertices": []
+      },
+      {
+        "id": "wire-1784629639541-214223",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784629627540-862164",
+          "pinId": "pin-1"
+        },
+        "to": {
+          "kind": "node",
+          "nodeId": "junction-1784629639541-552734"
+        },
+        "vertices": [
+          {
+            "x": 156.58194571829748,
+            "y": 175.6729961734712
+          }
+        ]
+      }
+    ]
+  },
+  "visual": {
+    "viewport": {
+      "zoom": 3.8573331675809936,
+      "x": -314.22436004391943,
+      "y": -286.7706176039742
+    }
+  },
+  "simulationSettings": {}
+}
