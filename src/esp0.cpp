@@ -11,9 +11,7 @@
 static QueueHandle_t adcQueue = nullptr;
 static uint32_t timeStampMS = 0;
 
-// Task dedicada à amostragem do ADC: roda em paralelo ao loop(), lê o pino
-// periodicamente e envia cada amostra para a fila, desacoplando a captura
-// do envio via Serial.
+// Task dedicada à amostragem do ADC: roda em paralelo ao loop(), lendo o valor do ADC a cada SAMPLE_PERIOD_MS e enviando para a fila adcQueue
 static void adcSampleTask(void *pvParameters) {
     TickType_t lastWake = xTaskGetTickCount();
     for (;;) {
@@ -38,5 +36,4 @@ void loop() {
         Serial.print(GAIN*sample+OFFSET);
         Serial.println("|g");
     }
-    // loop livre para outras tarefas
 }
