@@ -3,9 +3,9 @@
 #include <freertos/task.h>
 #include <freertos/queue.h>
 
-#define pinANALOG A5 // Configura o pino de leitura
 #define GAIN 1
 #define OFFSET 0
+#define pinANALOG A5 // Configura o pino de leitura
 #define SAMPLE_PERIOD_MS 1 // período de amostragem da task (1 kHz)
 
 static QueueHandle_t adcQueue = nullptr;
