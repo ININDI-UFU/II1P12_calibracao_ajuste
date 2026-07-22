@@ -62,7 +62,7 @@
       "id": "component-1784629397007-224909",
       "typeId": "sensors.ldr",
       "properties": {
-        "lux": 70790.35691346282,
+        "lux": 0.001,
         "__ui_valueLabelX": -39,
         "__ui_valueLabelY": -17
       },
@@ -92,10 +92,25 @@
         "y": 142.20416357522046,
         "rotation": 0
       }
+    },
+    {
+      "id": "component-1784729045518-204456",
+      "typeId": "peripherals.lasecplot",
+      "properties": {
+        "source_name": "LasecPlot-1"
+      },
+      "label": "LasecPlot-1",
+      "showValue": false,
+      "showDialValue": false,
+      "visual": {
+        "x": 382.0412530503314,
+        "y": 165.56049152202482,
+        "rotation": 0
+      }
     }
   ],
   "topology": {
-    "revision": 1430,
+    "revision": 1451,
     "nodes": [
       {
         "id": "junction-1784629478946-958952",
@@ -214,14 +229,60 @@
           "nodeId": "junction-1784629639541-552734"
         },
         "vertices": []
+      },
+      {
+        "id": "wire-1784729063029-216134",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784293420489-268209",
+          "pinId": "RX"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784729045518-204456",
+          "pinId": "tx"
+        },
+        "vertices": [
+          {
+            "x": 382.0412530503314,
+            "y": 174
+          }
+        ]
+      },
+      {
+        "id": "wire-1784729071364-308053",
+        "from": {
+          "kind": "port",
+          "componentId": "component-1784293420489-268209",
+          "pinId": "TX"
+        },
+        "to": {
+          "kind": "port",
+          "componentId": "component-1784729045518-204456",
+          "pinId": "rx"
+        },
+        "vertices": [
+          {
+            "x": 352,
+            "y": 166
+          },
+          {
+            "x": 352,
+            "y": 188.80000000000007
+          },
+          {
+            "x": 382.0412530503314,
+            "y": 188.80000000000007
+          }
+        ]
       }
     ]
   },
   "visual": {
     "viewport": {
-      "zoom": 3.1201539399988483,
-      "x": -8.618361324182274,
-      "y": -231.9655662396591
+      "zoom": 2.435932854658335,
+      "x": -146.9379771735584,
+      "y": -167.4069778438773
     }
   },
   "simulationSettings": {}
