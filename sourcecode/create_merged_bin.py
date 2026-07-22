@@ -251,24 +251,23 @@ def _find_elf_file(env, build_dir):
 
     return None
 
-
-def _copy_to_project_lasecSimul_folder(env, merged_bin_path, elf_path):
+def _copy_to_project_sourcecode_folder(env, merged_bin_path, elf_path):
     """
     Copia o merged.bin e o firmware .elf, renomeado para merger.elf, para a
-    pasta "lasecSimul" na raiz do projeto. Isso permite manter os arquivos
+    pasta "sourcecode" na raiz do projeto. Isso permite manter os arquivos
     prontos para uso junto dos projetos do simulador, sem precisar apontar
     para o caminho em ".pio".
     """
     project_dir = Path(env.subst("$PROJECT_DIR"))
-    lasecSimul_folder = project_dir / "lasecSimul"
+    sourcecode_folder = project_dir / "sourcecode"
 
-    if not lasecSimul_folder.is_dir():
-        _log(f"pasta '{lasecSimul_folder}' nao encontrada; copia para a pasta lasecSimul do projeto ignorada.")
+    if not sourcecode_folder.is_dir():
+        _log(f"pasta '{sourcecode_folder}' nao encontrada; copia para a pasta sourcecode do projeto ignorada.")
         return
 
-    dst_bin = lasecSimul_folder / merged_bin_path.name
+    dst_bin = sourcecode_folder / merged_bin_path.name
     shutil.copyfile(merged_bin_path, dst_bin)
-    _log(f"merged.bin copiado para a pasta lasecSimul do projeto: '{dst_bin}'")
+    _log(f"merged.bin copiado para a pasta sourcecode do projeto: '{dst_bin}'")
 
     if elf_path is None:
         _warn(
@@ -277,9 +276,9 @@ def _copy_to_project_lasecSimul_folder(env, merged_bin_path, elf_path):
         )
         return
 
-    dst_elf = lasecSimul_folder / "merger.elf"
+    dst_elf = sourcecode_folder / "merger.elf"
     shutil.copyfile(elf_path, dst_elf)
-    _log(f"firmware .elf copiado como merger.elf para a pasta lasecSimul do projeto: '{dst_elf}'")
+    _log(f"firmware .elf copiado como merger.elf para a pasta sourcecode do projeto: '{dst_elf}'")
 
 
 def after_build(source, target, env):
@@ -330,9 +329,9 @@ def after_build(source, target, env):
     elf_path = _find_elf_file(env, build_dir)
 
     # Passo 9: copiar merged.bin e o firmware .elf como merger.elf para a
-    # pasta "lasecSimul" do projeto, se ela existir. Nenhum arquivo de
+    # pasta "sourcecode" do projeto, se ela existir. Nenhum arquivo de
     # efuse e necessario.
-    _copy_to_project_lasecSimul_folder(env, output_path, elf_path)
+    _copy_to_project_sourcecode_folder(env, output_path, elf_path)
 
     _log("-" * 70)
 
